@@ -53,6 +53,7 @@ import pluginMusic from "@litecanvas/plugin-music"
 
 litecanvas({
   plugins: [pluginMusic],
+  loop: { init, update }
 })
 
 function init() {
