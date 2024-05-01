@@ -1,7 +1,7 @@
-/*! Music plugin for litecanvas v0.1.0 by Luiz Bills | MIT Licensed */
+/*! Music plugin for litecanvas v0.2.0 by Luiz Bills | MIT Licensed */
 window.pluginMusic = plugin
 
-export default function plugin(engine) {
+export default function plugin(engine, { on }) {
   const zzfx = engine.sfx
 
   /**
@@ -36,17 +36,12 @@ export default function plugin(engine) {
     ]
 
   // prettier-ignore
-  const DEF_INSTRUMENT = [1.03,0,523.2511,.06,.2,.09,,1.22,,,,,.4,,,,,.25,.07,.22]
+  const DEFAULT_INSTRUMENT = [1.03,0,523.2511,.06,.2,.09,,1.22,,,,,.4,,,,,.25,.07,.22]
   const SHARP_RATIO = Math.pow(2, 1 / 12)
   const FLAT_RATIO = 1 / SHARP_RATIO
   const songs = []
 
-  engine.loop.update.push((dt) => {
-    for (let i = 0; i < songs.length; i++) {
-      if (!songs[i].playing) continue
-      songs[i].update(dt)
-    }
-  })
+  on("update", _updateAll)
 
   function music(bpm, notes, instrument = null) {
     let _playing = false
@@ -129,12 +124,19 @@ export default function plugin(engine) {
       frequency *= decimal > 0 ? SHARP_RATIO : FLAT_RATIO
     }
 
-    instrument = instrument || DEF_INSTRUMENT
+    instrument = instrument || DEFAULT_INSTRUMENT
     const z = [...instrument]
     z[0] = z[0] * volume || instrument[0]
     z[2] = frequency
     z[4] = time
     zzfx(z)
+  }
+
+  function _updateAll(dt) {
+    for (let i = 0; i < songs.length; i++) {
+      if (!songs[i].playing) continue
+      songs[i].update(dt)
+    }
   }
 
   return {
