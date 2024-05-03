@@ -18,7 +18,7 @@
     "music"
   ],
   "scripts": {
-    "start": "esbuild src/index.js --bundle --watch --outfile=dist/dist.js --servedir=public",
+    "start": "esbuild src/index.js --bundle --watch --outfile=dist/dist.js",
     "build": "esbuild src/index.js --bundle --minify --outfile=dist/dist.js",
     "prepare": "npm run build"
   },
