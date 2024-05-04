@@ -1,6 +1,6 @@
 # Music plugin for litecanvas
 
-Plugin to compose and play music in [litecanvas](https://github.com/litecanvas/engine) games.
+Plugin to compose and play music in [litecanvas](https://github.com/litecanvas/engine) games using ZzFX.
 
 ## Install
 
