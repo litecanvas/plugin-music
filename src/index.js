@@ -1,7 +1,7 @@
-/*! Music plugin for litecanvas v0.2.0 by Luiz Bills | MIT Licensed */
+/*! Music plugin for litecanvas v0.3.0 by Luiz Bills | MIT Licensed */
 window.pluginMusic = plugin
 
-export default function plugin(engine, { on }) {
+export default function plugin(engine) {
   const zzfx = engine.sfx
 
   /**
@@ -41,7 +41,7 @@ export default function plugin(engine, { on }) {
   const FLAT_RATIO = 1 / SHARP_RATIO
   const songs = []
 
-  on("update", _updateAll)
+  engine.listen("update", _updateAll)
 
   function music(bpm, notes, instrument = null) {
     let _playing = false
