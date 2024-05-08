@@ -52,9 +52,10 @@ import litecanvas from "@litecanvas/litecanvas"
 import pluginMusic from "@litecanvas/plugin-music"
 
 litecanvas({
-  plugins: [pluginMusic],
-  loop: { init, update }
+  loop: { init, update },
 })
+
+use(pluginMusic) // load the plugin
 
 function init() {
   const musicNotes = [
