@@ -1,4 +1,4 @@
-/*! Music plugin for litecanvas v0.3.0 by Luiz Bills | MIT Licensed */
+/*! Music plugin for litecanvas v0.3.2 by Luiz Bills | MIT Licensed */
 window.pluginMusic = plugin
 
 export default function plugin(engine) {

@@ -48,7 +48,7 @@ See all avaliable notes in the table below:
 ![](sheet.png)
 
 ```js
-import litecanvas from "@litecanvas/litecanvas"
+import litecanvas from "litecanvas"
 import pluginMusic from "@litecanvas/plugin-music"
 
 litecanvas({
