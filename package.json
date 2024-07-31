@@ -1,6 +1,6 @@
 {
   "name": "@litecanvas/plugin-music",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "Plugin to compose and play music in litecanvas games",
   "author": "Luiz Bills <luizbills@pm.me>",
   "license": "MIT",
@@ -18,7 +18,7 @@
     "music"
   ],
   "scripts": {
-    "start": "esbuild src/index.js --bundle --watch --outfile=dist/dist.js",
+    "dev": "esbuild src/index.js --bundle --watch --outfile=dist/dist.js --servedir=.",
     "build": "esbuild src/index.js --bundle --minify --outfile=dist/dist.js",
     "prepare": "npm run build"
   },

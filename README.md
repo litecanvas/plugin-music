@@ -52,7 +52,7 @@ import litecanvas from "litecanvas"
 import pluginMusic from "@litecanvas/plugin-music"
 
 litecanvas({
-  loop: { init, update },
+  loop: { init, tapped },
 })
 
 use(pluginMusic) // load the plugin
@@ -69,9 +69,9 @@ function init() {
   happyBirthday = music(120, musicNotes)
 }
 
-function update(dt) {
+function tapped() {
   // tap to play the music
-  if (TAPPED && !happyBirthday.playing) {
+  if (!happyBirthday.playing) {
     happyBirthday.play()
   }
 }
